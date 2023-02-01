@@ -4,5 +4,12 @@ return({
       \href{<>}{<>}
       ]],
       {i(1, "url"), i(2, "name")})
+    ),
+
+    s({ trig = "bf", snippetType = "autosnippet"},
+      fmta([[
+      \textbf{<>}
+      ]],
+      {i(1)})
     )
 })

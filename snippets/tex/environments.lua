@@ -26,7 +26,7 @@ return {
 	),
 
     s(
-		{ trig = "subsec", descr = "Subsection", snippetType = "autosnippet" },
+		{ trig = "ssec", descr = "Subsection", snippetType = "autosnippet" },
 		fmta(
 			[[
         \subsection{<>}
@@ -40,7 +40,7 @@ return {
 		{ trig = "mm", descr = "Inline maths", snippetType = "autosnippet" },
 		fmta(
 			[[
-        $ <> $
+        $<>$
       ]],
 			{ i(1) }
 		)
@@ -57,11 +57,4 @@ return {
 			{ i(1) }
 		)
 	),
-
-    s({ trig = "ttt", descr = "Text env in maths mode", snippetType = "autosnippet"},
-      fmta([[
-      \texttt{<>}
-      ]],
-      { i(1) })
-    ),
 }
