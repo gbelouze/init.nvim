@@ -36,6 +36,19 @@ local function FocusVim()
 	vim.cmd([[silent execute "!open -a iTerm"]])
 end
 
+local function MovePdf() -- Move pdf
+    local path = vim.b.vimtex.tex
+    local base_start, base_end = string.find(path, "[^/]*[.]tex")
+    base_end = base_end - 4 -- ignore the ".tex"
+    local base = string.sub(path, base_start, base_end)
+    local dir = string.sub(path, 1, base_start - 1)
+    local pdf = dir .. ".build/" .. base .. ".pdf"
+    local new_pdf = dir .. base .. ".pdf"
+    if vim.fn.rename(pdf, new_pdf) then
+        vim.cmd(string.format([[call vimtex#log#info('Moved %s out of .build')]], pdf))
+    end
+end
+
 local VimTexAugroup = api.nvim_create_augroup("VimTex", { clear = true })
 api.nvim_create_autocmd("User", {
 	pattern = "VimtexEventViewReverse",
@@ -44,3 +57,10 @@ api.nvim_create_autocmd("User", {
 	end,
 	group = VimTexAugroup,
 })
+api.nvim_create_autocmd("User", {
+    pattern = "VimtexEventCompileSuccess",
+    callback = function()
+        vim.schedule(MovePdf)
+    end
+})
+
