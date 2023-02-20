@@ -3,9 +3,8 @@ local in_mathzone = M.in_mathzone
 
 return {
 	s({
-		trig = "=>",
+		trig = "RA",
 		snippetType = "autosnippet",
-		wordTrig = false,
 	}, {
 		t("\\Rightarrow"),
 	}, {
@@ -13,9 +12,8 @@ return {
 	}),
     
 	s({
-		trig = "->",
+		trig = "ra",
 		snippetType = "autosnippet",
-		wordTrig = false,
 	}, {
 		t("\\rightarrow"),
 	}, {
@@ -23,9 +21,8 @@ return {
 	}),
 
 	s({
-		trig = "<=",
-		snippettype = "autosnippet",
-		wordTrig = false,
+		trig = "La",
+		snippetType = "autosnippet",
 	}, {
 		t("\\Leftarrow"),
 	}, {
@@ -33,9 +30,8 @@ return {
 	}),
 
     s({
-		trig = "<-",
-		snippettype = "autosnippet",
-		wordTrig = false,
+		trig = "la",
+		snippetType = "autosnippet",
 	}, {
 		t("\\leftarrow"),
 	}, {
@@ -43,9 +39,8 @@ return {
 	}),
 
 	s({
-		trig = "<=>",
-		snippettype = "autosnippet",
-        wordTrig = false,
+		trig = "Lra",
+		snippetType = "autosnippet",
 	}, {
 		t("\\Leftrigtarrow"),
 	}, {

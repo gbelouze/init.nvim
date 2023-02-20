@@ -55,4 +55,32 @@ return {
     }, {
         t("\\nu"),
     }, { condition = in_mathzone }),
+    s({
+        trig = ";s",
+        snippetType = "autosnippet",
+        wordtrig = false,
+    }, {
+        t("\\sigma"),
+    }, { condition = in_mathzone }),
+    s({
+        trig = ";l",
+        snippetType = "autosnippet",
+        wordtrig = false,
+    }, {
+        t("\\lambda"),
+    }, { condition = in_mathzone }),
+    s({
+        trig = ";r",
+        snippetType = "autosnippet",
+        wordtrig = false,
+    }, {
+        t("\\rho"),
+    }, { condition = in_mathzone }),
+    s({
+        trig = ";y",
+        snippetType = "autosnippet",
+        wordtrig = false,
+    }, {
+        t("\\pi"),
+    }, { condition = in_mathzone }),
 }

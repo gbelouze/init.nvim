@@ -25,7 +25,7 @@ return {
 		{ condition = line_begin }
 	),
 
-    s(
+	s(
 		{ trig = "ssec", descr = "Subsection", snippetType = "autosnippet" },
 		fmta(
 			[[

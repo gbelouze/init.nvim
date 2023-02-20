@@ -3,6 +3,28 @@ local in_mathzone = M.in_mathzone
 
 return {
     s(
+        { trig = "trm", descr = "Text env in maths mode", snippetType = "autosnippet" },
+        fmta(
+            [[
+      \textrm{<>}
+      ]]     ,
+            { i(1) }
+        ),
+        { condition = in_mathzone }
+    ),
+
+    s(
+        { trig = "tsc", descr = "Text env in maths mode", snippetType = "autosnippet" },
+        fmta(
+            [[
+      \textsc{<>}
+      ]]     ,
+            { i(1) }
+        ),
+        { condition = in_mathzone }
+    ),
+
+    s(
         { trig = "ttt", descr = "Text env in maths mode", snippetType = "autosnippet" },
         fmta(
             [[
@@ -20,7 +42,8 @@ return {
       \sum_{k=<>}^{<>} <>
       ]]     ,
             { i(1, "0"), i(2, "n"), i(3) }
-        )
+        ),
+        { condition = in_mathzone }
     ),
 
     s(
@@ -30,7 +53,8 @@ return {
       \prod_{k=<>}^{<>} <>
       ]]     ,
             { i(1, "0"), i(2, "n"), i(3) }
-        )
+        ),
+        { condition = in_mathzone }
     ),
 
     s(
@@ -40,7 +64,8 @@ return {
       \mathbb{<>}
       ]]     ,
             { i(1) }
-        )
+        ),
+        { condition = in_mathzone }
     ),
 
     s(
@@ -50,6 +75,29 @@ return {
       \mathds{<>}
       ]]     ,
             { i(1, "1") }
-        )
+        ),
+        { condition = in_mathzone }
+    ),
+
+    s(
+        { trig = "ff", descr = "frac{}{}", snippetType = "autosnippet" },
+        fmta(
+            [[
+      \frac{<>}{<>}
+      ]]     ,
+            { i(1, "1"), i(2, "2") }
+        ),
+        { condition = in_mathzone }
+    ),
+    
+    s(
+        { trig = "uds", descr = "underset{}{}", snippetType = "autosnippet" },
+        fmta(
+            [[
+      \underset{<>}{<>}
+      ]]     ,
+            { i(1, "n \\rightarrow \\infty"), i(2,  "\\lim") }
+        ),
+        { condition = in_mathzone }
     ),
 }

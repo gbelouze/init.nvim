@@ -30,6 +30,11 @@ vim.keymap.set("n", "<leader>/", vim.cmd.noh)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move lines down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move lines up" })
 
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")
+
+vim.keymap.set("n", "vv", "v_o$")
+
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Append next line to current" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page jump up" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page jump down" })

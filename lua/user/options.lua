@@ -29,3 +29,5 @@ vim.opt.updatetime = 50
 vim.opt.maxmempattern = 5000
 
 vim.g.mapleader = " "
+
+vim.opt.conceallevel = 2
