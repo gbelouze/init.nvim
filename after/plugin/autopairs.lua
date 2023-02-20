@@ -1,4 +1,4 @@
--- Default settings
+
 local disable_filetype = { "TelescopePrompt" }
 local disable_in_macro = false  -- disable when recording or executing a macro
 local disable_in_visualblock = false -- disable when insert after visual block mode
@@ -21,3 +21,10 @@ local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local cmp = require("cmp")
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
+local Rule = require('nvim-autopairs.rule')
+local npairs = require('nvim-autopairs')
+
+npairs.add_rule(
+    Rule("\\{", "\\}", "tex")
+)

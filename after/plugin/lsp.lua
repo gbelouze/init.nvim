@@ -23,6 +23,35 @@ lsp.defaults.cmp_mappings({
 	["<C-y>"] = cmp.mapping.confirm({ select = true }),
 })
 
+local cmp_sources = lsp.defaults.cmp_sources()
+table.insert(cmp_sources, { name = "omni" }) -- integrate with vimtex completion engine
+lsp.setup_nvim_cmp({
+	sources = cmp_sources,
+})
+
+lsp.configure("pylsp", {
+	settings = {
+		pylsp = {
+			plugins = {
+				pycodestyle = {
+					maxLineLength = 100,
+					convention = "numpy",
+				},
+			},
+		},
+	},
+})
+
 lsp.setup()
 
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>f", function()
+	vim.lsp.buf.format({ timeout_ms = 2000 })
+end, {
+	desc = "Format current buffer",
+})
+
+vim.keymap.set("n", "<leader>F", function()
+	vim.lsp.buf.format({ timeout_ms = 10000 })
+end, {
+	desc = "Format current buffer (wait up to 10s)",
+})
