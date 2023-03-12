@@ -1,103 +1,159 @@
 local M = require("user.helpers")
 local in_mathzone = M.in_mathzone
+local not_latex_command = M.not_latex_command
 
 return {
+	s(
+		{ trig = "bar", descr = "\\bar{}", snippetType = "autosnippet" },
+		fmta(
+			[[
+      \bar{<>}
+      ]],
+			{ i(1) }
+		),
+		{ condition = in_mathzone * not_latex_command }
+	),
+
+	s(
+		{ trig = "ovl", descr = "\\overline{}", snippetType = "autosnippet" },
+		fmta(
+			[[
+      \overline{<>}
+      ]],
+			{ i(1) }
+		),
+		{ condition = in_mathzone * not_latex_command }
+	),
+
     s(
         { trig = "trm", descr = "Text env in maths mode", snippetType = "autosnippet" },
         fmta(
             [[
       \textrm{<>}
-      ]]     ,
+      ]],
             { i(1) }
         ),
-        { condition = in_mathzone }
+        {}
     ),
 
-    s(
-        { trig = "tsc", descr = "Text env in maths mode", snippetType = "autosnippet" },
-        fmta(
-            [[
+	s(
+		{ trig = "tsc", descr = "\\textsc{}", snippetType = "autosnippet" },
+		fmta(
+			[[
       \textsc{<>}
-      ]]     ,
-            { i(1) }
-        ),
-        { condition = in_mathzone }
-    ),
+      ]],
+			{ i(1) }
+		),
+        {}
+	),
 
-    s(
-        { trig = "ttt", descr = "Text env in maths mode", snippetType = "autosnippet" },
-        fmta(
-            [[
+	s(
+		{ trig = "ttt", descr = "\\texttt{}", snippetType = "autosnippet" },
+		fmta(
+			[[
       \texttt{<>}
-      ]]     ,
-            { i(1) }
-        ),
-        { condition = in_mathzone }
-    ),
+      ]],
+			{ i(1) }
+		),
+        {}
+	),
+
+	s(
+		{ trig = "tbf", descr = "\\textbf{}", snippetType = "autosnippet" },
+		fmta(
+			[[
+      \textbf{<>}
+      ]],
+			{ i(1) }
+		),
+        {}
+	),
 
     s(
-        { trig = "sum", snippetType = "autosnippet" },
-        fmta(
-            [[
+		{ trig = "tit", descr = "\\textit{}", snippetType = "autosnippet" },
+		fmta(
+			[[
+      \textit{<>}
+      ]],
+			{ i(1) }
+		),
+        {}
+	),
+
+	s(
+		{ trig = "sum", descr = "\\sum_{}^{}", snippetType = "autosnippet" },
+		fmta(
+			[[
       \sum_{k=<>}^{<>} <>
-      ]]     ,
-            { i(1, "0"), i(2, "n"), i(3) }
-        ),
-        { condition = in_mathzone }
-    ),
+      ]],
+			{ i(1, "0"), i(2, "n"), i(3) }
+		),
+		{ condition = in_mathzone * not_latex_command }
+	),
 
-    s(
-        { trig = "prod", snippetType = "autosnippet" },
-        fmta(
-            [[
+	s(
+		{ trig = "prod", descr = "\\prod_{}^{}", snippetType = "autosnippet" },
+		fmta(
+			[[
       \prod_{k=<>}^{<>} <>
-      ]]     ,
-            { i(1, "0"), i(2, "n"), i(3) }
-        ),
-        { condition = in_mathzone }
-    ),
+      ]],
+			{ i(1, "0"), i(2, "n"), i(3) }
+		),
+		{ condition = in_mathzone * not_latex_command }
+	),
 
-    s(
-        { trig = "mbb", descr = "mathbb{}", snippetType = "autosnippet" },
-        fmta(
-            [[
+	s(
+		{ trig = "mbb", descr = "\\mathbb{}", snippetType = "autosnippet" },
+		fmta(
+			[[
       \mathbb{<>}
-      ]]     ,
-            { i(1) }
-        ),
-        { condition = in_mathzone }
-    ),
+      ]],
+			{ i(1) }
+		),
+		{ condition = in_mathzone }
+	),
 
-    s(
-        { trig = "mds", descr = "mathds{}", snippetType = "autosnippet" },
-        fmta(
-            [[
+	s(
+		{ trig = "mds", descr = "\\mathds{}", snippetType = "autosnippet" },
+		fmta(
+			[[
       \mathds{<>}
-      ]]     ,
-            { i(1, "1") }
-        ),
-        { condition = in_mathzone }
-    ),
+      ]],
+			{ i(1, "1") }
+		),
+		{ condition = in_mathzone }
+	),
 
-    s(
-        { trig = "ff", descr = "frac{}{}", snippetType = "autosnippet" },
-        fmta(
-            [[
+	s(
+		{ trig = "ff", descr = "\\frac{}{}", snippetType = "autosnippet" },
+		fmta(
+			[[
       \frac{<>}{<>}
-      ]]     ,
-            { i(1, "1"), i(2, "2") }
-        ),
-        { condition = in_mathzone }
-    ),
-    
-    s(
-        { trig = "uds", descr = "underset{}{}", snippetType = "autosnippet" },
-        fmta(
-            [[
+      ]],
+			{ i(1, "1"), i(2, "2") }
+		),
+		{ condition = in_mathzone * not_latex_command }
+	),
+
+	s(
+		{ trig = "uds", descr = "\\underset{}{}", snippetType = "autosnippet" },
+		fmta(
+			[[
       \underset{<>}{<>}
-      ]]     ,
-            { i(1, "n \\rightarrow \\infty"), i(2,  "\\lim") }
-        ),
-        { condition = in_mathzone }
-    ),
+      ]],
+			{ i(1, "n \\rightarrow \\infty"), i(2, "\\lim") }
+		),
+		{ condition = in_mathzone }
+	),
+
+	s(
+		{ trig = "ovs", descr = "\\overset{}{}", snippetType = "autosnippet" },
+		fmta(
+			[[
+      \overset{<>}{<>}
+      ]],
+			{ i(1), i(2, "\\rightarrow") }
+		),
+		{ condition = in_mathzone }
+	),
 }

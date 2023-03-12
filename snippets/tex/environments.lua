@@ -1,4 +1,5 @@
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
+local not_latex_command = require("user.helpers").not_latex_command
 
 return {
 	s(
@@ -11,7 +12,7 @@ return {
           ]],
 			{ i(1), i(2), rep(1) }
 		),
-		{ condition = line_begin }
+		{ condition = line_begin * not_latex_command }
 	),
 
 	s(
@@ -22,7 +23,7 @@ return {
       ]],
 			{ i(1) }
 		),
-		{ condition = line_begin }
+		{ condition = line_begin * not_latex_command }
 	),
 
 	s(
@@ -33,14 +34,14 @@ return {
       ]],
 			{ i(1) }
 		),
-		{ condition = line_begin }
+		{ condition = line_begin * not_latex_command }
 	),
 
 	s(
 		{ trig = "mm", descr = "Inline maths", snippetType = "autosnippet" },
 		fmta(
 			[[
-        $<>$
+        $ <> $
       ]],
 			{ i(1) }
 		)
@@ -53,6 +54,20 @@ return {
         \[
             <>
         \]
+      ]],
+			{ i(1) }
+		)
+	),
+
+	s(
+		{ trig = "Mm", descr = "Aligned maths", snippetType = "autosnippet" },
+		fmta(
+			[[
+
+
+        \begin{align*}
+            <>
+        \end{align*}
       ]],
 			{ i(1) }
 		)

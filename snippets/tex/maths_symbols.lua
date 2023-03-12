@@ -1,4 +1,41 @@
+local M = require("user.helpers")
+local in_mathzone = M.in_mathzone
+local not_latex_command = M.not_latex_command
+
 return {
+    s({
+        trig = "inf",
+        descr = "infinity",
+        snippetType = "autosnippet",
+    }, {
+        t("\\infty"),
+    }, { condition = in_mathzone * not_latex_command }),
+    s({
+        trig = "st",
+        descr = "such that",
+        snippetType = "autosnippet",
+    }, {
+        t("\\; | \\; "),
+    }, { condition = in_mathzone * not_latex_command }),
+    s({
+        trig = "fa",
+        snippetType = "autosnippet",
+    }, {
+        t("\\forall"),
+    }, { condition = in_mathzone * not_latex_command }),
+    s({
+        trig = "ex",
+        snippetType = "autosnippet",
+    }, {
+        t("\\exists"),
+    }, { condition = in_mathzone * not_latex_command }),
+    s({
+        trig = "...",
+        snippetType = "autosnippet",
+        wordTrig = false,
+    }, {
+        t("\\ldots"),
+    }, { condition = in_mathzone }),
     s({
         trig = ";a",
         snippetType = "autosnippet",
@@ -26,6 +63,13 @@ return {
         wordtrig = false,
     }, {
         t("\\delta"),
+    }, { condition = in_mathzone }),
+    s({
+        trig = ";e",
+        snippetType = "autosnippet",
+        wordtrig = false,
+    }, {
+        t("\\varepsilon"),
     }, { condition = in_mathzone }),
     s({
         trig = ";p",
@@ -56,11 +100,25 @@ return {
         t("\\nu"),
     }, { condition = in_mathzone }),
     s({
+        trig = ";o",
+        snippetType = "autosnippet",
+        wordtrig = false,
+    }, {
+        t("\\omega"),
+    }, { condition = in_mathzone }),
+    s({
         trig = ";s",
         snippetType = "autosnippet",
         wordtrig = false,
     }, {
         t("\\sigma"),
+    }, { condition = in_mathzone }),
+    s({
+        trig = ";h",
+        snippetType = "autosnippet",
+        wordtrig = false,
+    }, {
+        t("\\theta"),
     }, { condition = in_mathzone }),
     s({
         trig = ";l",
@@ -75,6 +133,13 @@ return {
         wordtrig = false,
     }, {
         t("\\rho"),
+    }, { condition = in_mathzone }),
+    s({
+        trig = ";t",
+        snippetType = "autosnippet",
+        wordtrig = false,
+    }, {
+        t("\\tau"),
     }, { condition = in_mathzone }),
     s({
         trig = ";y",

@@ -1,5 +1,6 @@
 local M = require("user.helpers")
 local in_mathzone = M.in_mathzone
+local not_latex_command = M.not_latex_command
 
 return {
 	s({
@@ -8,7 +9,7 @@ return {
 	}, {
 		t("\\Rightarrow"),
 	}, {
-		condition = in_mathzone,
+		condition = in_mathzone * not_latex_command,
 	}),
     
 	s({
@@ -17,7 +18,7 @@ return {
 	}, {
 		t("\\rightarrow"),
 	}, {
-		condition = in_mathzone,
+		condition = in_mathzone * not_latex_command,
 	}),
 
 	s({
@@ -26,7 +27,7 @@ return {
 	}, {
 		t("\\Leftarrow"),
 	}, {
-		condition = in_mathzone,
+		condition = in_mathzone * not_latex_command,
 	}),
 
     s({
@@ -35,15 +36,15 @@ return {
 	}, {
 		t("\\leftarrow"),
 	}, {
-		condition = in_mathzone,
+		condition = in_mathzone * not_latex_command,
 	}),
 
 	s({
 		trig = "Lra",
 		snippetType = "autosnippet",
 	}, {
-		t("\\Leftrigtarrow"),
+		t("\\Leftrightarrow"),
 	}, {
-		condition = in_mathzone,
+		condition = in_mathzone * not_latex_command,
 	}),
 }
