@@ -1,5 +1,3 @@
-
-
 -- Only required if you have packer configured as `opt`
 vim.cmd([[packadd packer.nvim]])
 
@@ -98,6 +96,11 @@ return require("packer").startup(function(use)
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
 		},
+	})
+
+	-- git integration
+	use({
+		"lewis6991/gitsigns.nvim",
 	})
 
 	-- comment
