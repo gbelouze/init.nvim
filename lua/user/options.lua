@@ -1,5 +1,5 @@
 vim.opt.nu = true
-vim.opt.relativenumber =  true
+vim.opt.relativenumber = true
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -29,5 +29,10 @@ vim.opt.updatetime = 50
 vim.opt.maxmempattern = 5000
 
 vim.g.mapleader = " "
+vim.g.ftplugin_sql_omni_key = "<C-O>"
 
 vim.opt.conceallevel = 2
+vim.opt.foldlevel = 2
+
+vim.api.nvim_create_user_command("Light", function() vim.opt.background = "light" end, {})
+vim.api.nvim_create_user_command("Dark", function() vim.opt.background = "dark" end, {})
