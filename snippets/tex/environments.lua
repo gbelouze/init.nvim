@@ -38,6 +38,17 @@ return {
 	),
 
 	s(
+		{ trig = "sssec", descr = "Subsubsection", snippetType = "autosnippet" },
+		fmta(
+			[[
+        \subsubsection{<>}
+      ]],
+			{ i(1) }
+		),
+		{ condition = line_begin * not_latex_command }
+	),
+
+	s(
 		{ trig = "mm", descr = "Inline maths", snippetType = "autosnippet" },
 		fmta(
 			[[
@@ -70,6 +81,31 @@ return {
         \end{align*}
       ]],
 			{ i(1) }
+		)
+	),
+
+	s(
+		{ trig = "MNT", descr = "Display minted", snippetType = "autosnippet" },
+		fmta(
+			[[
+
+
+
+        \begin{minted}{<>}
+            <>
+        \end{minted}
+      ]],
+			{ i(1, "python"), i(2) }
+		)
+	),
+
+    s(
+		{ trig = "mnt", descr = "Inline minted", snippetType = "autosnippet" },
+		fmta(
+			[[
+        \mintinline{<>}{<>}
+      ]],
+			{ i(1, "python"), i(2) }
 		)
 	),
 }

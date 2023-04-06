@@ -25,16 +25,16 @@ return {
 		{ condition = in_mathzone * not_latex_command }
 	),
 
-    s(
-        { trig = "trm", descr = "Text env in maths mode", snippetType = "autosnippet" },
-        fmta(
-            [[
+	s(
+		{ trig = "trm", descr = "Text env in maths mode", snippetType = "autosnippet" },
+		fmta(
+			[[
       \textrm{<>}
       ]],
-            { i(1) }
-        ),
-        {}
-    ),
+			{ i(1) }
+		),
+		{ condition = not_latex_command }
+	),
 
 	s(
 		{ trig = "tsc", descr = "\\textsc{}", snippetType = "autosnippet" },
@@ -44,7 +44,7 @@ return {
       ]],
 			{ i(1) }
 		),
-        {}
+		{ condition = not_latex_command }
 	),
 
 	s(
@@ -55,7 +55,7 @@ return {
       ]],
 			{ i(1) }
 		),
-        {}
+		{ condition = not_latex_command }
 	),
 
 	s(
@@ -66,10 +66,10 @@ return {
       ]],
 			{ i(1) }
 		),
-        {}
+		{ condition = not_latex_command }
 	),
 
-    s(
+	s(
 		{ trig = "tit", descr = "\\textit{}", snippetType = "autosnippet" },
 		fmta(
 			[[
@@ -77,7 +77,7 @@ return {
       ]],
 			{ i(1) }
 		),
-        {}
+		{ condition = not_latex_command }
 	),
 
 	s(
