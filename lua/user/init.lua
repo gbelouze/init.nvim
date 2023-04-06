@@ -1,6 +1,6 @@
+require("user.packer")
 require("user.options")
 require("user.mappings")
-require("user.packer")
 require("user.helpers")
 
 -- disable unused built-in plugins

@@ -1,5 +1,8 @@
 local lsp = require("lsp-zero")
-lsp.preset("recommended")
+lsp.preset({
+	name = "recommended",
+	set_lsp_keymaps = true,
+})
 lsp.ensure_installed({
 	"lua_ls",
 })
@@ -42,16 +45,31 @@ lsp.configure("pylsp", {
 	},
 })
 
+lsp.on_attach(function(client, bufnr)
+	local bind = vim.keymap.set
+	bind("n", "<leader>f", function()
+		vim.lsp.buf.format({ timeout_ms = 2000 })
+	end, {
+		buffer = bufnr,
+		desc = "Format current buffer",
+	})
+
+	bind("n", "<leader>F", function()
+		vim.lsp.buf.format({ timeout_ms = 10000 })
+	end, {
+		buffer = bufnr,
+		desc = "Format current buffer (wait up to 10s)",
+	})
+
+	bind("n", "gl", vim.diagnostic.open_float, {
+		buffer = bufnr,
+		desc = "Show diagnostics in floating window",
+	})
+
+    bind("n", "<C-B>", vim.lsp.buf.signature_help, {
+        buffer = bufnr,
+        desc = "Show signature in floating window"
+    })
+end)
+
 lsp.setup()
-
-vim.keymap.set("n", "<leader>f", function()
-	vim.lsp.buf.format({ timeout_ms = 2000 })
-end, {
-	desc = "Format current buffer",
-})
-
-vim.keymap.set("n", "<leader>F", function()
-	vim.lsp.buf.format({ timeout_ms = 10000 })
-end, {
-	desc = "Format current buffer (wait up to 10s)",
-})
