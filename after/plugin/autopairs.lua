@@ -28,3 +28,6 @@ local npairs = require('nvim-autopairs')
 npairs.add_rule(
     Rule("\\{", "\\}", "tex")
 )
+npairs.add_rule(
+    Rule("$", "$", "tex")
+)
