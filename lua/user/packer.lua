@@ -5,6 +5,9 @@ return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
+    -- Git integration
+    use("tpope/vim-fugitive")
+
 	-- telescope
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -59,6 +62,16 @@ return require("packer").startup(function(use)
 		},
 	})
 	use("jose-elias-alvarez/null-ls.nvim")
+
+	-- error messages
+	use({
+		"folke/trouble.nvim",
+		requires = "nvim-tree/nvim-web-devicons",
+		config = function()
+			require("trouble").setup({
+			})
+		end,
+	})
 
 	-- latex integration
 	use("lervag/vimtex")
