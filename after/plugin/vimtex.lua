@@ -1,6 +1,7 @@
 vim.g.vimtex_view_method = "skim"
 vim.g.vimtex_view_general_viewer = "skim"
 vim.g.vimtex_view_forward_search_on_start = false
+vim.g.vimtex_fold_enabled = true
 vim.g.vimtex_toc_config = {
 	mode = 1,
 	fold_enable = 0,
@@ -30,20 +31,18 @@ local function MovePdf() -- Move pdf
 	local project_root = vim.b.vimtex.root
 	local pdf = project_root .. "/.build/main.pdf"
 	local new_pdf = project_root .. "/main.pdf"
-	if vim.fn.filereadable(pdf) then
-		vim.fn.writefile(vim.fn.readfile(pdf, "b"), new_pdf, "b")
+	for _ = 1, 2, 1 do
+		if vim.fn.filereadable(pdf) == 0 then
+			project_root = project_root .. "/.."
+			pdf = project_root .. "/.build/main.pdf"
+			new_pdf = project_root .. "/main.pdf"
+		end
+	end
+	if vim.fn.filereadable(pdf) > 0 then
+		local buf = vim.fn.readfile(pdf, "b")
+		vim.fn.writefile(buf, new_pdf, "b")
 		vim.cmd(string.format([[call vimtex#log#info('Moved %s out of .build')]], pdf))
 	end
-	-- local path = vim.b.vimtex.tex
-	-- local base_start, base_end = string.find(path, "[^/]*[.]tex")
-	-- base_end = base_end - 4 -- ignore the ".tex"
-	-- local base = string.sub(path, base_start, base_end)
-	-- local dir = string.sub(path, 1, base_start - 1)
-	-- local pdf = dir .. ".build/" .. base .. ".pdf"
-	-- local new_pdf = dir .. base .. ".pdf"
-	-- local pdf_file = vim.fn.readfile(pdf, "b")
-	-- vim.fn.writefile(pdf_file, new_pdf, "b")
-	-- vim.cmd(string.format([[call vimtex#log#info('Moved %s out of .build')]], pdf))
 end
 
 local VimTexAugroup = api.nvim_create_augroup("VimTex", { clear = true })

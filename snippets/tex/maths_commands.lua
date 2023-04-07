@@ -156,4 +156,37 @@ return {
 		),
 		{ condition = in_mathzone }
 	),
+
+	s(
+		{ trig = "ee", descr = "e^{}", snippetType = "autosnippet" },
+		fmta(
+			[[
+      e^{<>}
+      ]],
+			{ i(1, "x") }
+		),
+		{ condition = in_mathzone * not_latex_command }
+	),
+
+    s(
+		{ trig = "sqrt", descr = "\\sqrt{}", snippetType = "autosnippet" },
+		fmta(
+			[[
+      \sqrt{<>}
+      ]],
+			{ i(1, "x") }
+		),
+		{ condition = in_mathzone * not_latex_command }
+	),
+
+    s(
+		{ trig = "int", descr = "\\int", snippetType = "autosnippet" },
+		fmta(
+			[[
+      \int_{<>}^{<>} <><>
+      ]],
+			{ i(1, "a"), i(2, "b"), i(3, "f(t)"), i(4, "dt")}
+		),
+		{ condition = in_mathzone * not_latex_command }
+	),
 }
