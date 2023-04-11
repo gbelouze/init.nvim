@@ -36,3 +36,6 @@ vim.opt.foldlevel = 2
 
 vim.api.nvim_create_user_command("Light", function() vim.opt.background = "light" end, {})
 vim.api.nvim_create_user_command("Dark", function() vim.opt.background = "dark" end, {})
+
+-- package option that must be set before loading the package
+vim.g.slime_no_mappings = 1

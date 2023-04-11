@@ -63,6 +63,9 @@ return require("packer").startup(function(use)
 	})
 	use("jose-elias-alvarez/null-ls.nvim")
 
+    -- REPL integration
+    use({"jpalardy/vim-slime"})
+
 	-- error messages
 	use({
 		"folke/trouble.nvim",
