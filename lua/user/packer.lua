@@ -25,6 +25,7 @@ return require("packer").startup(function(use)
 		--      vim.cmd("colorscheme rose-pine")
 		--   end,
 	})
+    use { "catppuccin/nvim", as = "catppuccin" }
 
 	--harpoon
 	use({
@@ -126,4 +127,7 @@ return require("packer").startup(function(use)
 			require("Comment").setup()
 		end,
 	})
+
+    -- kitty integration
+    use "fladson/vim-kitty"
 end)
