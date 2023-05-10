@@ -72,8 +72,7 @@ return require("packer").startup(function(use)
 		"folke/trouble.nvim",
 		requires = "nvim-tree/nvim-web-devicons",
 		config = function()
-			require("trouble").setup({
-			})
+			require("trouble").setup({})
 		end,
 	})
 
