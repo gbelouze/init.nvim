@@ -128,6 +128,9 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- postgresql integration
+	use("lifepillar/pgsql.vim")
+
     -- kitty integration
     use "fladson/vim-kitty"
 end)
