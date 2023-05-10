@@ -5,8 +5,8 @@ return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
-    -- Git integration
-    use("tpope/vim-fugitive")
+	-- Git integration
+	use("tpope/vim-fugitive")
 
 	-- telescope
 	use({
