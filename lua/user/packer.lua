@@ -127,6 +127,14 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- zen mode
+	use({
+		"folke/zen-mode.nvim",
+		config = function()
+			require("zen-mode").setup({})
+		end,
+	})
+
 	-- postgresql integration
 	use("lifepillar/pgsql.vim")
 
