@@ -27,15 +27,14 @@ wk.register({
 				end,
 				"Open nvim configuration directory",
 			},
-            g = {
-                function ()
-                    vim.cmd("Neotree float git_status")
-                end,
-                "Open a git status window"
-            }
+			g = {
+				function()
+					vim.cmd("Neotree float git_status")
+				end,
+				"Open a git status window",
+			},
 		},
 	},
-	{ mode = "n" },
 })
 
 require("neo-tree").setup({})

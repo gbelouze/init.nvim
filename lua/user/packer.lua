@@ -25,7 +25,7 @@ return require("packer").startup(function(use)
 		--      vim.cmd("colorscheme rose-pine")
 		--   end,
 	})
-    use { "catppuccin/nvim", as = "catppuccin" }
+	use({ "catppuccin/nvim", as = "catppuccin" })
 
 	--harpoon
 	use({
@@ -44,8 +44,8 @@ return require("packer").startup(function(use)
 	use({
 		"VonHeikemen/lsp-zero.nvim",
 		requires = {
-			-- LSP Support
 			{ "neovim/nvim-lspconfig" },
+			-- LSP Support
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
 
@@ -138,6 +138,39 @@ return require("packer").startup(function(use)
 	-- postgresql integration
 	use("lifepillar/pgsql.vim")
 
-    -- kitty integration
-    use "fladson/vim-kitty"
+	-- kitty integration
+	use("fladson/vim-kitty")
+
+	-- Neorg note taking tool
+	use({
+		"nvim-neorg/neorg",
+		config = function()
+			require("neorg").setup({
+				load = {
+					["core.defaults"] = {}, -- Loads default behaviour
+					["core.concealer"] = {}, -- Adds pretty icons to your documents
+					["core.dirman"] = { -- Manages Neorg workspaces
+						config = {
+							workspaces = {
+								notes = "~/notes",
+							},
+						},
+					},
+				},
+			})
+		end,
+		-- run = ":Neorg sync-parsers",
+		requires = "nvim-lua/plenary.nvim",
+	})
+
+	-- Typing exercises
+	use({
+		"nagy135/typebreak.nvim",
+		requires = "nvim-lua/plenary.nvim",
+	})
+
+	-- For developping nvim packages / writing my config
+	use({
+		"folke/neodev.nvim",
+	})
 end)

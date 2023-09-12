@@ -1,3 +1,5 @@
+require("neodev").setup({})
+
 local lsp = require("lsp-zero")
 lsp.preset({
 	name = "recommended",
@@ -45,6 +47,10 @@ lsp.configure("pylsp", {
 	},
 })
 
+-- lsp.configure("sqlls", {
+--     settings = {}
+-- })
+
 lsp.on_attach(function(client, bufnr)
 	local bind = vim.keymap.set
 	bind("n", "<leader>f", function()
@@ -73,3 +79,43 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+
+-- local cmp = require("cmp")
+-- cmp.setup({
+-- 	snippet = {
+-- 		expand = function(args)
+-- 			require("luasnip").lsp_expand(args.body)
+-- 		end,
+-- 	},
+-- 	mapping = cmp.mapping.preset.insert({
+-- 		["<C-p>"] = cmp.mapping.select_prev_item(),
+-- 		["<C-n>"] = cmp.mapping.select_next_item(),
+-- 		["<C-y>"] = cmp.mapping.confirm({ select = true }),
+-- 	}),
+-- 	matching = {
+-- 		disallow_partial_fuzzy_matching = true,
+-- 	},
+-- 	sources = {
+--         { name = "nvim_lsp", max_item_count = 2 },
+-- 		{ name = "luasnip" },
+--         { name = "path" },
+-- 		{ name = "omni" }, -- integreate with vimtex completion engine
+-- 		{ name = "buffer", keyword_length = 3 },
+-- 	},
+-- 	sorting = {
+-- 		priority_weight = 100,
+-- 	},
+-- 	formatting = {
+-- 		format = function(entry, item)
+-- 			if entry.source.name == "buffer" then
+-- 				item.menu = "[Buffer]"
+-- 			elseif entry.source.name == "nvim_lsp" then
+-- 				item.menu = "{" .. entry.source.source.client.name .. "}"
+-- 			else
+-- 				item.menu = "[" .. entry.source.name .. "]"
+-- 			end
+-- 			return item
+-- 		end,
+-- 	},
+-- })
