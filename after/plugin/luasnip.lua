@@ -23,3 +23,7 @@ vim.keymap.set(
 vim.keymap.set("i", "<C-d>", "<Plug>luasnip-jump-next", {
 	desc = "Jump to the next Luasnip placeholder",
 })
+
+vim.keymap.set("s", "<C-d>", "<Plug>luasnip-jump-next", {
+	desc = "Jump to the next Luasnip placeholder",
+})
