@@ -23,9 +23,14 @@ wk.register({
 
 vim.keymap.set("n", "<leader>/", vim.cmd.noh)
 vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("n", "<C-c>", "<Esc>")
+vim.keymap.set("v", "<C-c>", "<Esc>")
+vim.keymap.set("s", "<C-c>", "<Esc>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move lines down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move lines up" })
+vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent right" })
 
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
