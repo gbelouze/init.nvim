@@ -11,4 +11,15 @@ return {
 		),
 		{ condition = line_begin }
 	),
+	s(
+		{ trig = [[..]], dscr = "New line" },
+		fmta(
+			[[
+            \\
+
+          ]],
+			{}
+		),
+		{}
+	),
 }

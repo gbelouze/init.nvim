@@ -4,6 +4,27 @@ local not_latex_command = M.not_latex_command
 
 return {
 	s(
+		{ trig = "dot", descr = "\\dot{}", snippetType = "autosnippet" },
+		fmta(
+			[[
+      \dot{<>}
+      ]],
+			{ i(1) }
+		),
+		{ condition = in_mathzone * not_latex_command }
+	),
+	s(
+		{ trig = "hat", descr = "\\hat{}", snippetType = "autosnippet" },
+		fmta(
+			[[
+      \hat{<>}
+      ]],
+			{ i(1) }
+		),
+		{ condition = in_mathzone * not_latex_command }
+	),
+
+	s(
 		{ trig = "bar", descr = "\\bar{}", snippetType = "autosnippet" },
 		fmta(
 			[[
@@ -186,6 +207,17 @@ return {
       \int_{<>}^{<>} <><>
       ]],
 			{ i(1, "a"), i(2, "b"), i(3, "f(t)"), i(4, "dt")}
+		),
+		{ condition = in_mathzone * not_latex_command }
+	),
+
+    s(
+		{ trig = "lrangle", descr = "<...|...>", snippetType = "autosnippet" },
+		fmta(
+			[[
+      \langle <> \; | \; <> \rangle
+      ]],
+			{ i(1), i(2)}
 		),
 		{ condition = in_mathzone * not_latex_command }
 	),
