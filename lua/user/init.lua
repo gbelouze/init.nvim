@@ -1,5 +1,5 @@
-require("user.packer")
 require("user.options")
+require("user.lazy")
 require("user.mappings")
 require("user.helpers")
 
