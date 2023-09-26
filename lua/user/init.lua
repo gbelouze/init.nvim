@@ -22,9 +22,10 @@ local disabled_built_ins = {
     "logipat",
     "rrhelper",
     "spellfile_plugin",
-    "matchit"
+    "matchit",
 }
 
+vim.g["loaded_netrw"] = 1
 for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
