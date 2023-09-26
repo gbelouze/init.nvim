@@ -49,6 +49,12 @@ local on_attach = function(bufnr)
 	map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Current hunk text object" })
 end
 
-require("gitsigns").setup({
-	on_attach = on_attach,
-})
+return {
+	{
+		"lewis6991/gitsigns.nvim",
+		enable = false,
+		config = function()
+			require("gitsigns").setup({ on_attach = on_attach })
+		end,
+	},
+}

@@ -21,8 +21,6 @@ vim.g.vimtex_compiler_latexmk = {
 }
 vim.g.vimtex_quickfix_open_on_warning = false
 
-local api = vim.api
-
 local function FocusVim()
 	vim.cmd([[silent execute "!open -a iTerm"]])
 end
@@ -45,17 +43,24 @@ local function MovePdf() -- Move pdf
 	end
 end
 
-local VimTexAugroup = api.nvim_create_augroup("VimTex", { clear = true })
-api.nvim_create_autocmd("User", {
-	pattern = "VimtexEventViewReverse",
-	callback = function()
-		vim.schedule(FocusVim)
-	end,
-	group = VimTexAugroup,
-})
-api.nvim_create_autocmd("User", {
-	pattern = "VimtexEventCompileSuccess",
-	callback = function()
-		vim.schedule(MovePdf)
-	end,
-})
+return {
+	{
+		"lervag/vimtex",
+		init = function(_)
+			local VimTexAugroup = vim.api.nvim_create_augroup("VimTex", { clear = true })
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "VimtexEventViewReverse",
+				callback = function()
+					vim.schedule(FocusVim)
+				end,
+				group = VimTexAugroup,
+			})
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "VimtexEventCompileSuccess",
+				callback = function()
+					vim.schedule(MovePdf)
+				end,
+			})
+		end,
+	},
+}
