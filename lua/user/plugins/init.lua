@@ -2,7 +2,6 @@ return {
 
     -- better nvim
     { "ggandor/leap.nvim", config = function() require("leap").add_default_mappings() end, }, -- movement
-    { "karb94/neoscroll.nvim",  opts = { hide_cursor = false, easing_function = "quadratic" } },
     { "kylechui/nvim-surround", event = "VeryLazy",                                           opts = {} }, -- delimiters
     { "numToStr/Comment.nvim",  lazy = false,                                                 opts = {} }, -- comment
     "folke/zen-mode.nvim",
