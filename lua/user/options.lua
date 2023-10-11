@@ -31,7 +31,7 @@ vim.opt.spelllang = "en_gb,fr"
 vim.opt.spell = false
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+vim.g.maplocalleader = "'"
 vim.g.ftplugin_sql_omni_key = "<C-O>"
 
 vim.opt.conceallevel = 2
@@ -44,3 +44,6 @@ vim.opt.clipboard = "unnamedplus"
 vim.g.slime_no_mappings = 1
 
 vim.g.sql_type_default = "pgsql"
+
+-- allow nvim to `require` luarocks-installed packages
+package.path = package.path .. ";/Users/gabriel/.myluarocks/magick/?.lua"
