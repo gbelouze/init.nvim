@@ -13,6 +13,14 @@ return {
 							},
 						},
 					},
+                    ["core.keybinds"] = {
+                        config = {
+                            hook = function (keybinds)
+                                keybinds.remap_key("norg", "i", "<C-d>", "<C-h>")
+                                keybinds.remap_key("norg", "i", "<C-t>", "<C-l>")
+                            end
+                        }
+                    }
 				},
 			})
 		end,
