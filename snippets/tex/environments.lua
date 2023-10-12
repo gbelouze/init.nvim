@@ -16,7 +16,7 @@ return {
 	),
 
 	s(
-		{ trig = "sec", descr = "Section", snippetType = "autosnippet" },
+		{ trig = "sec", desc = "Section", snippetType = "autosnippet" },
 		fmta(
 			[[
         \section{<>}
@@ -27,7 +27,7 @@ return {
 	),
 
 	s(
-		{ trig = "ssec", descr = "Subsection", snippetType = "autosnippet" },
+		{ trig = "ssec", desc = "Subsection", snippetType = "autosnippet" },
 		fmta(
 			[[
         \subsection{<>}
@@ -38,7 +38,7 @@ return {
 	),
 
 	s(
-		{ trig = "sssec", descr = "Subsubsection", snippetType = "autosnippet" },
+		{ trig = "sssec", desc = "Subsubsection", snippetType = "autosnippet" },
 		fmta(
 			[[
         \subsubsection{<>}
@@ -49,7 +49,7 @@ return {
 	),
 
 	s(
-		{ trig = "mm", descr = "Inline maths", snippetType = "autosnippet" },
+		{ trig = "mm", desc = "Inline maths", snippetType = "autosnippet" },
 		fmta(
 			[[
         $ <> $
@@ -59,7 +59,7 @@ return {
 	),
 
 	s(
-		{ trig = "MM", descr = "Display maths", snippetType = "autosnippet" },
+		{ trig = "MM", desc = "Display maths", snippetType = "autosnippet" },
 		fmta(
 			[[
         \[
@@ -71,7 +71,7 @@ return {
 	),
 
 	s(
-		{ trig = "Mm", descr = "Aligned maths", snippetType = "autosnippet" },
+		{ trig = "Mm", desc = "Aligned maths", snippetType = "autosnippet" },
 		fmta(
 			[[
 
@@ -85,7 +85,7 @@ return {
 	),
 
 	s(
-		{ trig = "MNT", descr = "Display minted", snippetType = "autosnippet" },
+		{ trig = "MNT", desc = "Display minted", snippetType = "autosnippet" },
 		fmta(
 			[[
 
@@ -100,7 +100,7 @@ return {
 	),
 
     s(
-		{ trig = "mnt", descr = "Inline minted", snippetType = "autosnippet" },
+		{ trig = "mnt", desc = "Inline minted", snippetType = "autosnippet" },
 		fmta(
 			[[
         \mintinline{<>}{<>}

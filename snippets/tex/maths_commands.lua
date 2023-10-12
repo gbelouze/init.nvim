@@ -4,7 +4,7 @@ local not_latex_command = M.not_latex_command
 
 return {
 	s(
-		{ trig = "dot", descr = "\\dot{}", snippetType = "autosnippet" },
+		{ trig = "dot", desc = "\\dot{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \dot{<>}
@@ -14,7 +14,7 @@ return {
 		{ condition = in_mathzone * not_latex_command }
 	),
 	s(
-		{ trig = "hat", descr = "\\hat{}", snippetType = "autosnippet" },
+		{ trig = "hat", desc = "\\hat{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \hat{<>}
@@ -25,7 +25,7 @@ return {
 	),
 
 	s(
-		{ trig = "bar", descr = "\\bar{}", snippetType = "autosnippet" },
+		{ trig = "bar", desc = "\\bar{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \bar{<>}
@@ -36,7 +36,7 @@ return {
 	),
 
 	s(
-		{ trig = "ovl", descr = "\\overline{}", snippetType = "autosnippet" },
+		{ trig = "ovl", desc = "\\overline{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \overline{<>}
@@ -47,7 +47,7 @@ return {
 	),
 
 	s(
-		{ trig = "trm", descr = "Text env in maths mode", snippetType = "autosnippet" },
+		{ trig = "trm", desc = "Text env in maths mode", snippetType = "autosnippet" },
 		fmta(
 			[[
       \textrm{<>}
@@ -58,7 +58,7 @@ return {
 	),
 
 	s(
-		{ trig = "tsc", descr = "\\textsc{}", snippetType = "autosnippet" },
+		{ trig = "tsc", desc = "\\textsc{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \textsc{<>}
@@ -69,7 +69,7 @@ return {
 	),
 
 	s(
-		{ trig = "ttt", descr = "\\texttt{}", snippetType = "autosnippet" },
+		{ trig = "ttt", desc = "\\texttt{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \texttt{<>}
@@ -80,7 +80,7 @@ return {
 	),
 
 	s(
-		{ trig = "tbf", descr = "\\textbf{}", snippetType = "autosnippet" },
+		{ trig = "tbf", desc = "\\textbf{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \textbf{<>}
@@ -91,7 +91,7 @@ return {
 	),
 
 	s(
-		{ trig = "tit", descr = "\\textit{}", snippetType = "autosnippet" },
+		{ trig = "tit", desc = "\\textit{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \textit{<>}
@@ -102,7 +102,7 @@ return {
 	),
 
 	s(
-		{ trig = "sum", descr = "\\sum_{}^{}", snippetType = "autosnippet" },
+		{ trig = "sum", desc = "\\sum_{}^{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \sum_{k=<>}^{<>} <>
@@ -113,7 +113,7 @@ return {
 	),
 
 	s(
-		{ trig = "prod", descr = "\\prod_{}^{}", snippetType = "autosnippet" },
+		{ trig = "prod", desc = "\\prod_{}^{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \prod_{k=<>}^{<>} <>
@@ -124,7 +124,7 @@ return {
 	),
 
 	s(
-		{ trig = "mbb", descr = "\\mathbb{}", snippetType = "autosnippet" },
+		{ trig = "mbb", desc = "\\mathbb{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \mathbb{<>}
@@ -135,7 +135,7 @@ return {
 	),
 
 	s(
-		{ trig = "mds", descr = "\\mathds{}", snippetType = "autosnippet" },
+		{ trig = "mds", desc = "\\mathds{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \mathds{<>}
@@ -146,7 +146,7 @@ return {
 	),
 
 	s(
-		{ trig = "ff", descr = "\\frac{}{}", snippetType = "autosnippet" },
+		{ trig = "ff", desc = "\\frac{}{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \frac{<>}{<>}
@@ -157,7 +157,7 @@ return {
 	),
 
 	s(
-		{ trig = "uds", descr = "\\underset{}{}", snippetType = "autosnippet" },
+		{ trig = "uds", desc = "\\underset{}{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \underset{<>}{<>}
@@ -168,7 +168,7 @@ return {
 	),
 
 	s(
-		{ trig = "ovs", descr = "\\overset{}{}", snippetType = "autosnippet" },
+		{ trig = "ovs", desc = "\\overset{}{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \overset{<>}{<>}
@@ -179,7 +179,7 @@ return {
 	),
 
 	s(
-		{ trig = "ee", descr = "e^{}", snippetType = "autosnippet" },
+		{ trig = "ee", desc = "e^{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       e^{<>}
@@ -190,7 +190,7 @@ return {
 	),
 
     s(
-		{ trig = "sqrt", descr = "\\sqrt{}", snippetType = "autosnippet" },
+		{ trig = "sqrt", desc = "\\sqrt{}", snippetType = "autosnippet" },
 		fmta(
 			[[
       \sqrt{<>}
@@ -201,7 +201,7 @@ return {
 	),
 
     s(
-		{ trig = "int", descr = "\\int", snippetType = "autosnippet" },
+		{ trig = "int", desc = "\\int", snippetType = "autosnippet" },
 		fmta(
 			[[
       \int_{<>}^{<>} <><>
@@ -212,7 +212,7 @@ return {
 	),
 
     s(
-		{ trig = "lrangle", descr = "<...|...>", snippetType = "autosnippet" },
+		{ trig = "lrangle", desc = "<...|...>", snippetType = "autosnippet" },
 		fmta(
 			[[
       \langle <> \; | \; <> \rangle

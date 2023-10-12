@@ -5,14 +5,14 @@ local not_latex_command = M.not_latex_command
 return {
     s({
         trig = "inf",
-        descr = "infinity",
+        desc = "infinity",
         snippetType = "autosnippet",
     }, {
         t("\\infty"),
     }, { condition = in_mathzone * not_latex_command }),
     s({
         trig = "st",
-        descr = "such that",
+        desc = "such that",
         snippetType = "autosnippet",
     }, {
         t("\\; | \\; "),
