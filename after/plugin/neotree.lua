@@ -1,28 +1,6 @@
 -- Somehow I have to put this in after/ short of which netrw is not disabled...
 require("neo-tree").setup({
     close_if_last_window = true,
-    sources = {
-        "filesystem",
-        "buffers",
-        "git_status",
-        "document_symbols",
-    },
-    source_selector = {
-        sources = {
-            { source = "filesystem" },
-            { source = "buffers" },
-            { source = "git_status" },
-            { source = "document_symbols" },
-        },
-        winbar = true,
-        content_layout = "center",
-        tab_labels = {
-            filesystem = " File",
-            buffers = "➜ Buffs",
-            git_status = " Git",
-            document_symbols = " Symbols",
-        },
-    },
     default_component_configs = {
         indent = {
             padding = 0,
@@ -42,13 +20,6 @@ require("neo-tree").setup({
                 deleted = "",
                 ignored = "◌",
             },
-        },
-    },
-    window = {
-        width = 30,
-        mappings = {
-            ["o"] = "open",
-            ["v"] = "open_vsplit",
         },
     },
     filesystem = {
