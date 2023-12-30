@@ -19,6 +19,9 @@ return {
 										icon = "",
 									},
 								},
+								quote = {
+									icons = { ">" },
+								},
 							},
 						},
 					}, -- Adds pretty icons to your documents
@@ -32,16 +35,30 @@ return {
 							index = "index.norg",
 						},
 					},
-                    ["core.keybinds"] = {
-                        config = {
-                            hook = function (keybinds)
-                                keybinds.remap_key("norg", "i", "<C-d>", "<C-h>")
-                                keybinds.remap_key("norg", "i", "<C-t>", "<C-l>")
-                            end
-                        }
-                    }
-                    -- unavailable while nvim 10.0.0 is nightly
-                    -- ["core.tempus"] = {}
+					["core.keybinds"] = {
+						config = {
+							hook = function(keybinds)
+								keybinds.remap_key("norg", "i", "<C-d>", "<C-h>")
+								keybinds.remap_key("norg", "i", "<C-t>", "<C-l>")
+							end,
+						},
+					},
+					["core.esupports.indent"] = {
+						config = {
+							tweaks = (function(tablen)
+								return {
+                                    heading1 = 0 * tablen,
+									heading2 = 1 * tablen,
+									heading3 = 2 * tablen,
+									heading4 = 3 * tablen,
+									heading5 = 4 * tablen,
+									heading6 = 5 * tablen,
+								}
+							end)(2),
+						},
+					},
+					-- unavailable while nvim 10.0.0 is nightly
+					-- ["core.tempus"] = {}
 				},
 			})
 		end,
@@ -58,22 +75,22 @@ return {
 							end,
 							"Neorg index",
 						},
-                        c = {
-                            function ()
-                                vim.cmd([[Neorg toggle-concealer]])
-                            end,
-                            "Neorg toggle-concealer"
-                        },
+						c = {
+							function()
+								vim.cmd([[Neorg toggle-concealer]])
+							end,
+							"Neorg toggle-concealer",
+						},
 						r = {
 							function()
 								vim.cmd([[Neorg return]])
 							end,
 							"Neorg return",
 						},
-                        w = {
-                            ":Neorg workspace ",
-                            "Neorg workspace"
-                        }
+						w = {
+							":Neorg workspace ",
+							"Neorg workspace",
+						},
 					},
 				},
 			})

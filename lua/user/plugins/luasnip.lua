@@ -4,11 +4,14 @@ return {
         "L3MON4D3/LuaSnip",
         dependencies = { "gbelouze/friendly-snippets" },
         config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
+            require("luasnip.loaders.from_vscode").lazy_load({
+                default_priority = 50,
+            })
             require("luasnip").config.set_config({
                 enable_autosnippets = true,
                 store_selection_keys = "<Tab>",
                 update_events = "TextChanged,TextChangedI",
+                loaders_store_source = true
             })
         end,
         init = function(_)

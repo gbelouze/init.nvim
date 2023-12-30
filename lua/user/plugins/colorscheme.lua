@@ -4,15 +4,15 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-        opts = {},
+		opts = {},
 		init = function(_)
 			vim.cmd([[colorscheme catppuccin-frappe]])
 
 			vim.api.nvim_create_user_command("Light", function()
-				vim.opt.background = "light"
+				vim.cmd([[colorscheme catppuccin-latte]])
 			end, {})
 			vim.api.nvim_create_user_command("Dark", function()
-				vim.opt.background = "dark"
+				vim.cmd([[colorscheme catppuccin-frappe]])
 			end, {})
 		end,
 	},

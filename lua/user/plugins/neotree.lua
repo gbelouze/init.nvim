@@ -6,6 +6,7 @@ return {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
+            "folke/which-key.nvim",
         },
         init = function(_)
             local wk = require("which-key")
@@ -15,7 +16,7 @@ return {
                         name = "+tree",
                         t = {
                             function()
-                                vim.cmd("Neotree focus")
+                                vim.cmd("Neotree focus filesystem")
                             end,
                             "Open Neotree",
                         },

@@ -2,21 +2,15 @@ return {
 	{
 		"folke/trouble.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
-		init = function(_)
-			require("nvim-web-devicons").set_icon({
-				tex = {
-					icon = "",
-					color = "#3D6117",
-					cterm_color = "22",
-					name = "Tex",
-				},
-				pdf = {
-					icon = "",
-					color = "#b30b00",
-					cterm_color = "124",
-					name = "Pdf",
-				},
-			})
-		end,
+        keys = {
+            { "<leader>xx", function() require("trouble").toggle() end },
+            { "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end },
+            { "<leader>xd", function() require("trouble").toggle("document_diagnostics") end },
+            { "<leader>xq", function() require("trouble").toggle("quickfix") end },
+            { "<leader>xl", function() require("trouble").toggle("loclist") end },
+            { "<leader>j", function() require("trouble").next({ jump=true }) end },
+            { "<leader>k", function() require("trouble").previous({ jump=true }) end },
+            { "gR", function() require("trouble").toggle("lsp_references") end },
+        },
 	},
 }

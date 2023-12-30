@@ -27,6 +27,8 @@ vim.keymap.set("n", "<C-c>", "<Esc>")
 vim.keymap.set("v", "<C-c>", "<Esc>")
 vim.keymap.set("s", "<C-c>", "<Esc>")
 
+vim.keymap.set("n", "<BS>", ":")
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move lines down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move lines up" })
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })
@@ -45,10 +47,11 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search hit" })
 
 vim.keymap.set("n", "Q", "<nop>", { desc = "No op" })
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "Quickfix navigation" })
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "Quickfix navigation" })
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Quickfix navigation" })
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Quickfix navigation" })
+vim.keymap.set("n", "<C-K>", "<cmd>cnext<CR>zz", { desc = "Quickfix navigation" })
+vim.keymap.set("n", "<C-J>", "<cmd>cprev<CR>zz", { desc = "Quickfix navigation" })
+
+-- necessary because I have netrw disabled
+vim.keymap.set("n", "gx", ":!open <C-r><C-a>", { desc = "Open link under cursor" })
 
 vim.keymap.set(
 	"n",
