@@ -17,7 +17,7 @@ vim.g.vimtex_toc_config = {
 	todo_sorted = 1,
 }
 vim.g.vimtex_compiler_latexmk = {
-	build_dir = ".build",
+	out_dir = ".build/",
 }
 vim.g.vimtex_quickfix_open_on_warning = false
 
