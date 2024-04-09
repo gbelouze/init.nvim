@@ -6,7 +6,8 @@ return {
 				css = { "prettier" },
 				html = { "prettier" },
 				javascript = { "prettier" },
-                latex = { "latexindent" },
+				json = { "prettier" },
+				latex = { "latexindent" },
 				lua = { "stylua" },
 				markdown = { "prettier" },
 				ocaml = { "ocamlformat" },
@@ -17,5 +18,15 @@ return {
 				-- sql = { "sqlfluff" }
 			},
 		})
+	end,
+
+	init = function()
+		vim.keymap.set("n", "<leader>f", function()
+			require("conform").format({ timeout_ms = 2000, lsp_fallback = false })
+		end, { desc = "[F]ormat current buffer" })
+
+		vim.keymap.set("n", "<leader>F", function()
+			require("conform").format({ timeout_ms = 10000, lsp_fallback = false })
+		end, { desc = "[F]ormat current buffer (wait up to 10 sec)" })
 	end,
 }
