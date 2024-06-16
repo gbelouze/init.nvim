@@ -27,6 +27,8 @@ return {
 									keywordSnippet = "Disable",
 									-- I prefer the snippets provided by LuaSnip + friendly-snippets
 								},
+								-- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+								diagnostics = { disable = { "missing-fields" } },
 							},
 						},
 					})

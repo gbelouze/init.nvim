@@ -7,18 +7,9 @@ wk.register({
 		o = { "m`o<ESC>``", "Insert line under current line" },
 		O = { "m`O<ESC>``", "Insert line above current line" },
 		p = { '"_dP', "Paste without yanking" },
-		y = { ":%w !pbcopy<CR><CR>", "Yank current buffer to system clipboard" },
-		d = { '"_d', "Delete without yanking" },
+		y = { ":%w !pbcopy<CR><CR>", "Yank current buffer to system clipboard", mode = { "n", "x" } },
+		D = { '"_d', "Delete without yanking", mode = { "n", "x" } },
 	},
-})
-
-wk.register({
-	["<leader>"] = {
-		y = { ":w !pbcopy<CR><CR>", "Yank to system clipboard" },
-		d = { '"_d', "Delete without yanking" },
-	},
-}, {
-	mode = "v",
 })
 
 vim.keymap.set("n", "<leader>/", vim.cmd.noh)
