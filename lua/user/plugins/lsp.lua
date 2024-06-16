@@ -50,9 +50,9 @@ return {
 										enabled = false,
 									},
 
-                                    mypy = {
-                                        enabled = false,
-                                    },
+									mypy = {
+										enabled = false,
+									},
 
 									flake8 = {
 										enabled = true,
