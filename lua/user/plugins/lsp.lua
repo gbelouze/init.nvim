@@ -8,7 +8,13 @@ return {
 		},
 		config = function()
 			local mls = require("mason-lspconfig")
-			mls.setup({})
+			mls.setup({
+				ensure_installed = {
+					"lua_ls",
+					"pylsp",
+					"markdown_oxide",
+				},
+			})
 			mls.setup_handlers({
 				-- default handler
 				function(server_name)
@@ -73,6 +79,16 @@ return {
 				["tsserver"] = function()
 					require("lspconfig").tsserver.setup({})
 				end,
+				["markdown_oxide"] = function()
+					require("lspconfig").markdown_oxide.setup({
+						on_attach = function()
+							-- setup Markdown Oxide daily note commands
+							vim.api.nvim_create_user_command("Daily", function(args)
+								vim.lsp.buf.execute_command({ command = "jump", arguments = { args.args } })
+							end, { desc = "Open daily note", nargs = "*" })
+						end,
+					})
+				end,
 			})
 		end,
 	},
@@ -85,19 +101,6 @@ return {
 			"folke/neodev.nvim",
 		},
 		config = function()
-			require("neodev").setup({})
-
-			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({
-				settings = {
-					Lua = {
-						workspace = {
-							checkThirdParty = false,
-						},
-					},
-				},
-			})
-
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 				callback = function(ev)
