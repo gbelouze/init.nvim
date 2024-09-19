@@ -6,11 +6,13 @@ return {
 			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
+			"onsails/lspkind.nvim",
 			"tzachar/cmp-ai",
 		},
 		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
+			local lspkind = require("lspkind")
 
 			cmp.setup({
 				snippet = {
