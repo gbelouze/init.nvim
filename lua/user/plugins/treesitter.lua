@@ -72,6 +72,7 @@ local opts = {
         },
 
         move = {
+            -- TODO: this is not working currently
             enable = true,
             disable = { "latex" },
             set_jumps = true, -- wether to set jumps in the jumplist
@@ -96,6 +97,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
+        lazy = false,
         config = function()
             require("nvim-treesitter.configs").setup({ opts })
         end,
