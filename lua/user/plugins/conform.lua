@@ -1,24 +1,30 @@
 return {
 	"stevearc/conform.nvim",
-	config = function()
-		require("conform").setup({
-			formatters_by_ft = {
-				css = { "prettier" },
-				html = { "prettier" },
-				javascript = { "prettier" },
-				json = { "prettier" },
-				latex = { "latexindent" },
-				lua = { "stylua" },
-				markdown = { "prettier" },
-				ocaml = { "ocamlformat" },
-				-- Conform will run multiple formatters sequentially
-				python = { "isort", "black", "flake8" },
-				yaml = { "yamlfmt", "prettier" },
-				-- Not in conform yet
-				-- sql = { "sqlfluff" }
+	opts = {
+		formatters_by_ft = {
+			css = { "prettier" },
+			html = { "prettier" },
+			javascript = { "prettier" },
+			json = { "prettier" },
+			latex = { "latexindent" },
+			lua = { "stylua" },
+			markdown = { "prettier" },
+			ocaml = { "ocamlformat" },
+			-- Conform will run multiple formatters sequentially
+			python = { "isort", "black", "flake8" },
+			yaml = { "yamlfmt", "prettier" },
+			-- Not in conform yet
+			-- sql = { "sqlfluff" }
+			rst = { "docstrfmt" },
+		},
+		formatters = {
+			docstrfmt = {
+				command = "docstrfmt",
+				args = { "$FILENAME" },
+				stdin = false,
 			},
-		})
-	end,
+		},
+	},
 
 	init = function()
 		vim.keymap.set("n", "<leader>f", function()

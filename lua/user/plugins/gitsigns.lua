@@ -52,9 +52,7 @@ end
 return {
 	{
 		"lewis6991/gitsigns.nvim",
-		enable = false,
-		config = function()
-			require("gitsigns").setup({ on_attach = on_attach })
-		end,
+		-- enable = false,
+		opts = { on_attach = on_attach },
 	},
 }

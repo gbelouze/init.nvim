@@ -10,16 +10,14 @@ return {
 			desc = "[Neogen]: Generate documentation",
 		},
 	},
-	config = function()
-		require("neogen").setup({
-			languages = {
-				python = {
-					template = {
-						annotation_convention = "numpydoc",
-					},
+	opts = {
+		languages = {
+			python = {
+				template = {
+					annotation_convention = "numpydoc",
 				},
 			},
-			snippet_engine = "luasnip",
-		})
-	end,
+		},
+		snippet_engine = "luasnip",
+	},
 }
