@@ -10,5 +10,13 @@ return {
 				builtin.grep_string({ search = vim.fn.input("Grep > ") })
 			end)
 		end,
+		config = function()
+			require("telescope").setup({
+				["ui-select"] = {
+					require("telescope.themes").get_dropdown(),
+				},
+			})
+			require("telescope").load_extension("ui-select")
+		end,
 	},
 }
