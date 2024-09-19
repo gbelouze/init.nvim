@@ -5,22 +5,14 @@ return {
 			vim.g.slime_target = "tmux"
 
 			local wk = require("which-key")
-			wk.register({
-				["<leader>R"] = {
-					name = "+slime",
-					c = { ":SlimeConfig<CR>", "Slime: [c]onfig REPL" },
-					p = { "<Plug>SlimeParagraphSend", "Slime: Send [p]aragraph to REPL" },
-					s = { ":SlimeSendCurrentLine<CR>", "Slime: [s]end current line to REPL" },
-					r = { [[:SlimeSend0 "\n"<CR>]], "Slime: Send \\n to REPL" },
-					f = { "ggVG<Plug>SlimeRegionSend", "Slime: Send whole [f]ile to REPL" },
-				},
-			})
-			wk.register({
-				["<leader>R"] = {
-					"<Plug>SlimeRegionSend",
-					"Send selection to REPL",
-					mode = "x",
-				},
+			wk.add({
+				{ "<leader>R", group = "slime" },
+				{ "<leader>Rc", ":SlimeConfig<CR>", desc = "Slime: [c]onfig REPL" },
+				{ "<leader>Rf", "ggVG<Plug>SlimeRegionSend", desc = "Slime: Send whole [f]ile to REPL" },
+				{ "<leader>Rp", "<Plug>SlimeParagraphSend", desc = "Slime: Send [p]aragraph to REPL" },
+				{ "<leader>Rr", ':SlimeSend0 "\\n"<CR>', desc = "Slime: Send \\n to REPL" },
+				{ "<leader>Rs", ":SlimeSendCurrentLine<CR>", desc = "Slime: [s]end current line to REPL" },
+				{ "<leader>R", "<Plug>SlimeRegionSend", desc = "Send selection to REPL", mode = "x" },
 			})
 		end,
 	},

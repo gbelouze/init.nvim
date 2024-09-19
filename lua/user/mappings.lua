@@ -1,15 +1,13 @@
 local wk = require("which-key")
 
-wk.register({
-	["<leader>"] = {
-		w = { ":w<cr>", "Save current buffer" },
-		q = { ":q<cr>", "Quit current buffer" },
-		o = { "m`o<ESC>``", "Insert line under current line" },
-		O = { "m`O<ESC>``", "Insert line above current line" },
-		p = { '"_dP', "Paste without yanking" },
-		y = { ":%w !pbcopy<CR><CR>", "Yank current buffer to system clipboard", mode = { "n", "x" } },
-		D = { '"_d', "Delete without yanking", mode = { "n", "x" } },
-	},
+wk.add({
+	{ "<leader>D", '"_d', desc = "Delete without yanking", mode = { "n", "x" } },
+	{ "<leader>y", ":%w !pbcopy<CR><CR>", desc = "Yank current buffer to system clipboard", mode = { "n", "x" } },
+	{ "<leader>O", "m`O<ESC>``", desc = "Insert line above current line" },
+	{ "<leader>o", "m`o<ESC>``", desc = "Insert line under current line" },
+	{ "<leader>p", '"_dP', desc = "Paste without yanking" },
+	{ "<leader>q", ":q<cr>", desc = "Quit current buffer" },
+	{ "<leader>w", ":w<cr>", desc = "Save current buffer" },
 })
 
 vim.keymap.set("n", "<leader>/", vim.cmd.noh)
@@ -46,7 +44,7 @@ vim.keymap.set("n", "gx", ":!open <C-r><C-a>", { desc = "Open link under cursor"
 
 vim.keymap.set(
 	"n",
-	"<leader>s",
+	"<leader>ss",
 	":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
 	{ desc = "Edit all occurences of the current word" }
 )

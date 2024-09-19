@@ -80,47 +80,46 @@ return {
 	init = function()
 		local wk = require("which-key")
 		local dap = require("dap")
-		wk.register({
-			["<leader>"] = {
-				d = {
-					name = "+dap",
-					B = {
-						function()
-							require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
-						end,
-						"[B]reakpoint Condition",
-					},
-					b = { dap.toggle_breakpoint, "Toggle [b]reakpoint" },
-					c = { dap.continue, "[c]ontinue" },
-					a = {
-						function()
-							dap.continue({ before = get_args })
-						end,
-						"Run with Args",
-					},
-					C = { dap.run_to_cursor, "Run to [C]ursor" },
-					g = { dap.goto_, "[g]o to Line (No Execute)" },
-					i = { dap.step_into, "Step [i]nto" },
-					j = { dap.down, "Down" },
-					k = { dap.up, "Up" },
-					l = { dap.run_last, "Run [l]ast" },
-					o = { dap.step_out, "Step [o]ut" },
-					p = { dap.pause, "[p]ause" },
-					r = {
-						function()
-							if not dap.repl.close({ mode = "toggle" }) then
-								local _, win = dap.repl.open()
-								vim.api.nvim_set_current_win(win)
-							end
-						end,
-						"Toggle [r]EPL",
-					},
-					R = { dap.restart, "[R]estart" },
-					s = { dap.step_over, "[s]tep Over" },
-					t = { dap.terminate, "[t]erminate" },
-					w = { require("dap.ui.widgets").hover, "Widgets" },
-				},
+		wk.add({
+			{ "<leader>d", group = "dap" },
+			{
+				"<leader>dB",
+				function()
+					require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+				end,
+				desc = "[B]reakpoint Condition",
 			},
+			{ "<leader>dC", dap.run_to_cursor, desc = "Run to [C]ursor" },
+			{ "<leader>dR", dap.restart, desc = "[R]estart" },
+			{
+				"<leader>da",
+				function()
+					dap.continue({ before = get_args })
+				end,
+				desc = "Run with Args",
+			},
+			{ "<leader>db", dap.toggle_breakpoint, desc = "Toggle [b]reakpoint" },
+			{ "<leader>dc", dap.continue, desc = "[c]ontinue" },
+			{ "<leader>dg", dap.goto_, desc = "[g]o to Line (No Execute)" },
+			{ "<leader>di", dap.step_into, desc = "Step [i]nto" },
+			{ "<leader>dj", dap.down, desc = "Down" },
+			{ "<leader>dk", dap.up, desc = "Up" },
+			{ "<leader>dl", dap.run_last, desc = "Run [l]ast" },
+			{ "<leader>do", dap.step_out, desc = "Step [o]ut" },
+			{ "<leader>dp", dap.pause, desc = "[p]ause" },
+			{
+				"<leader>dr",
+				function()
+					if not dap.repl.close({ mode = "toggle" }) then
+						local _, win = dap.repl.open()
+						vim.api.nvim_set_current_win(win)
+					end
+				end,
+				desc = "Toggle [r]EPL",
+			},
+			{ "<leader>ds", dap.step_over, desc = "[s]tep Over" },
+			{ "<leader>dt", dap.terminate, desc = "[t]erminate" },
+			{ "<leader>dw", require("dap.ui.widgets").hover, desc = "Widgets" },
 		})
 	end,
   -- stylua: ignore
