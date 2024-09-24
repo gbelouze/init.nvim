@@ -11,4 +11,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("user.plugins")
+require("lazy").setup("user.plugins", {
+	rocks = {
+		hererocks = true,
+		root = vim.fn.stdpath("data") .. "/lazy-rocks",
+	},
+})
