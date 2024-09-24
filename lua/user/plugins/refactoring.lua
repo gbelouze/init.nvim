@@ -13,7 +13,7 @@ return {
 				{
 					"<Leader>re",
 					function()
-						require("refactoring").refactor("Extract function")
+						require("refactoring").refactor("Extract Function")
 					end,
 					desc = "Refactor: [e]xtract function",
 					mode = "x",
