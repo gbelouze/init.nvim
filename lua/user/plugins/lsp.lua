@@ -12,6 +12,7 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"pylsp",
+					"ruff-lsp",
 					"markdown_oxide",
 				},
 			})
@@ -39,11 +40,41 @@ return {
 						},
 					})
 				end,
+				["ruff_lsp"] = function()
+					require("lspconfig").ruff_lsp.setup({
+						on_attach = function(client, bufnr)
+							if client.name == "ruff_lsp" then
+								client.server_capabilities.hoverProvider = false
+							else
+								vim.notify("[on_attach] called for ruff_lsp with name " .. client.name)
+							end
+						end,
+						init_options = {
+							settings = {
+								-- Any extra CLI arguments for `ruff` go here
+								args = {},
+							},
+						},
+					})
+				end,
 				["pylsp"] = function()
 					require("lspconfig").pylsp.setup({
+						on_attach = function(client, bufnr)
+							if client.name == "pylsp" then
+								client.server_capabilities.codeActionProvider = false
+								client.server_capabilities.documentFormattingProvider = false
+								client.server_capabilities.documentRangeFormattingProvider = false
+							else
+								vim.notify("[on_attach] called for pylsp with name " .. client.name)
+							end
+						end,
 						settings = {
 							pylsp = {
 								plugins = {
+									autopep8 = {
+										enabled = false,
+									},
+
 									pycodestyle = {
 										enabled = false,
 										maxLineLength = 120,
@@ -51,6 +82,10 @@ return {
 									},
 
 									pyflakes = {
+										enabled = false,
+									},
+
+									pylint = {
 										enabled = false,
 									},
 
@@ -63,21 +98,23 @@ return {
 									},
 
 									flake8 = {
-										enabled = true,
+										enabled = false,
 										maxLineLength = 120,
 										convention = "numpy",
 									},
 
 									pydocstyle = {
 										enabled = false,
+										convention = "numpy",
+									},
+
+									yapf = {
+										enabled = false,
 									},
 								},
 							},
 						},
 					})
-				end,
-				["tsserver"] = function()
-					require("lspconfig").tsserver.setup({})
 				end,
 				["markdown_oxide"] = function()
 					require("lspconfig").markdown_oxide.setup({
