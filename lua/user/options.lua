@@ -46,5 +46,7 @@ vim.g.slime_no_mappings = 1
 
 vim.g.sql_type_default = "pgsql"
 
+vim.g.python3_host_prog = vim.fn.expand("~/.config/nvim/nvim-venv/bin/python3")
+
 -- allow nvim to `require` luarocks-installed packages
 package.path = package.path .. ";/Users/gabriel/.myluarocks/magick/?.lua"

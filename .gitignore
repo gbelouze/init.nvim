@@ -2,4 +2,4 @@
 /lazy-lock.json
 spell/
 .DS_Store
-
+nvim-venv

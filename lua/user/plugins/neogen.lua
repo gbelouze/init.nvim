@@ -1,15 +1,6 @@
 return {
 	"danymat/neogen",
 	dependencies = "nvim-treesitter/nvim-treesitter",
-	keys = {
-		{
-			"<Leader>cc",
-			function()
-				require("neogen").generate({})
-			end,
-			desc = "[Neogen]: Generate documentation",
-		},
-	},
 	opts = {
 		languages = {
 			python = {
@@ -20,4 +11,17 @@ return {
 		},
 		snippet_engine = "luasnip",
 	},
+	init = function()
+		local wk = require("which-key")
+		wk.add({
+			{ "<leader>c", group = "neogen" },
+			{
+				"<leader>cc",
+				function()
+					require("neogen").generate({})
+				end,
+				desc = "[Neogen]: Generate documentation",
+			},
+		})
+	end,
 }

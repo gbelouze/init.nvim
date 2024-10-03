@@ -11,9 +11,10 @@ return {
 			mls.setup({
 				ensure_installed = {
 					"lua_ls",
-					"pylsp",
-					"ruff-lsp",
 					"markdown_oxide",
+					"pylsp",
+					"ruff_lsp",
+					"ocamllsp",
 				},
 			})
 			mls.setup_handlers({
@@ -42,7 +43,7 @@ return {
 				end,
 				["ruff_lsp"] = function()
 					require("lspconfig").ruff_lsp.setup({
-						on_attach = function(client, bufnr)
+						on_attach = function(client, _)
 							if client.name == "ruff_lsp" then
 								client.server_capabilities.hoverProvider = false
 							else
@@ -59,7 +60,7 @@ return {
 				end,
 				["pylsp"] = function()
 					require("lspconfig").pylsp.setup({
-						on_attach = function(client, bufnr)
+						on_attach = function(client, _)
 							if client.name == "pylsp" then
 								client.server_capabilities.codeActionProvider = false
 								client.server_capabilities.documentFormattingProvider = false
@@ -121,10 +122,16 @@ return {
 						on_attach = function()
 							-- setup Markdown Oxide daily note commands
 							vim.api.nvim_create_user_command("Daily", function(args)
+								if #args.args == 0 then
+									args.args = "today"
+								end
 								vim.lsp.buf.execute_command({ command = "jump", arguments = { args.args } })
 							end, { desc = "Open daily note", nargs = "*" })
 						end,
 					})
+				end,
+				["ocamllsp"] = function()
+					require("lspconfig").ocamllsp.setup({})
 				end,
 			})
 		end,
