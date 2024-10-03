@@ -55,6 +55,8 @@ require("nvim-treesitter.configs").setup({
 				["ia"] = { query = "@parameter.inner", desc = "Select in a parameter region" },
 				["ad"] = { query = "@comment.outer", desc = "Select around a comment region" }, -- 'd' is for 'description' since 'c' is taken for class
 				["id"] = { query = "@comment.inner", desc = "Select in a comment region" },
+				["aj"] = { query = "@code_cell.outer", desc = "[a]round code cell" },
+				["ij"] = { query = "@code_cell.inner", desc = "[i]n code cell" },
 			},
 
 			selection_modes = {
@@ -62,6 +64,8 @@ require("nvim-treesitter.configs").setup({
 				["@function.inner"] = "V",
 				["@class.outer"] = "V",
 				["@class.inner"] = "V",
+				["@code_cell.outer"] = "V",
+				["@code_cell.inner"] = "V",
 				["@parameter.outer"] = "v", -- charwise
 				["@parameter.inner"] = "v",
 				["@comment.outer"] = "v",
@@ -86,10 +90,12 @@ require("nvim-treesitter.configs").setup({
 			goto_next_start = {
 				["]m"] = { query = "@function.outer", desc = "Next function start" },
 				["]]"] = { query = "@class.outer", desc = "Next class start" },
+				["ganj"] = { query = "@code_cell.outer", desc = "[g]o [a]t [n]ext cell" },
 			},
 			goto_next_end = {
 				["]M"] = { query = "@function.outer", desc = "Next function end" },
 				["]["] = { query = "@class.outer", desc = "Next class end" },
+				["gaje"] = { query = "@code_cell.outer", desc = "[g]o [a]t cell [end]" },
 			},
 			goto_previous_start = {
 				["[m"] = { query = "@function.outer", desc = "Previous function start" },
@@ -98,6 +104,7 @@ require("nvim-treesitter.configs").setup({
 			goto_previous_end = {
 				["[M"] = { query = "@function.outer", desc = "Previous function end" },
 				["[["] = { query = "@class.outer", desc = "Previous class end" },
+				["gajs"] = { query = "@code_cell.outer", desc = "[g]o [a]t cell [s]tart" },
 			},
 		},
 	},
