@@ -16,6 +16,7 @@ return {
 			-- Not in conform yet
 			-- sql = { "sqlfluff" }
 			rst = { "docstrfmt" },
+			quarto = { "injected" },
 		},
 		formatters = {
 			docstrfmt = {

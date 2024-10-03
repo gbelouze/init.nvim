@@ -16,6 +16,7 @@ return {
 			npairs.add_rule(Rule("\\{", "\\}", "tex"))
 			npairs.add_rule(Rule("$", "$", "tex"))
             npairs.add_rule(Rule("*", "*", "markdown"))
+            npairs.add_rule(Rule("```", "```", "quarto"))
 		end,
 	}, -- delimiters
 }

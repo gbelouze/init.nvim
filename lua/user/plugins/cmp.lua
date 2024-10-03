@@ -3,10 +3,13 @@ return {
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-emoji",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
+			"jmbuhr/otter.nvim",
+			"kdheepak/cmp-latex-symbols",
 			"onsails/lspkind.nvim",
+			"saadparwaiz1/cmp_luasnip",
 			"tzachar/cmp-ai",
 		},
 		config = function()
@@ -29,7 +32,7 @@ return {
 							config = {
 								sources = cmp.config.sources({
 									{ name = "cmp_ai" },
-                                    { name = "codeium" },
+									{ name = "codeium" },
 								}),
 							},
 						}),
@@ -37,11 +40,14 @@ return {
 					),
 				}),
 				sources = {
+					{ name = "otter" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "omni" }, -- integrate with vimtex completion engine
 					{ name = "path" },
 					{ name = "buffer" },
+					{ name = "latex_symbols" },
+					{ name = "emoji" },
 				},
 
 				formatting = {
@@ -50,7 +56,13 @@ return {
 						mode = "symbol_text",
 						maxwidth = 50,
 						ellipsis_char = "...",
-						symbol_map = { Codeium = "", Ollama = "󱖿" },
+						symbol_map = {
+							Codeium = "",
+							Ollama = "󱖿",
+							latex_symbols = "",
+							emoji = "😊",
+							otter = "🦦",
+						},
 					}),
 				},
 			})
