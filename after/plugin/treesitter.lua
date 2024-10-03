@@ -35,9 +35,7 @@ require("nvim-treesitter.configs").setup({
 			node_decremental = ";",
 		},
 	},
-})
 
-require("nvim-treesitter.configs").setup({
 	textobjects = {
 		select = {
 			enable = true,
@@ -47,14 +45,14 @@ require("nvim-treesitter.configs").setup({
 			lookahead = true,
 
 			keymaps = {
-				["af"] = { query = "@function.outer", desc = "Select around a function region" },
-				["if"] = { query = "@function.inner", desc = "Select in a function region" },
-				["ac"] = { query = "@class.outer", desc = "Select around a class region" },
-				["ic"] = { query = "@class.inner", desc = "Select in a class region" },
-				["aa"] = { query = "@parameter.outer", desc = "Select around a parameter region" }, -- 'a' is for 'argument' since 'p' is taken for paragraph
-				["ia"] = { query = "@parameter.inner", desc = "Select in a parameter region" },
-				["ad"] = { query = "@comment.outer", desc = "Select around a comment region" }, -- 'd' is for 'description' since 'c' is taken for class
-				["id"] = { query = "@comment.inner", desc = "Select in a comment region" },
+				["af"] = { query = "@function.outer", desc = "[a]round [f]unction" },
+				["if"] = { query = "@function.inner", desc = "[i]n [f]unction" },
+				["ac"] = { query = "@class.outer", desc = "[a]round [c]lass" },
+				["ic"] = { query = "@class.inner", desc = "[i]n [c]lass" },
+				["aa"] = { query = "@parameter.outer", desc = "[a]round [a]rgument" },
+				["ia"] = { query = "@parameter.inner", desc = "[i]n [a]rgument" },
+				["ad"] = { query = "@comment.outer", desc = "[a]round  [d]escription" }, -- 'd' is for 'description' since 'c' is taken for class
+				["id"] = { query = "@comment.inner", desc = "[i]n [d]escription" },
 				["aj"] = { query = "@code_cell.outer", desc = "[a]round code cell" },
 				["ij"] = { query = "@code_cell.inner", desc = "[i]n code cell" },
 			},
@@ -84,26 +82,23 @@ require("nvim-treesitter.configs").setup({
 		},
 
 		move = {
+			-- TODO: this is not working currently
 			enable = true,
 			disable = { "latex" },
 			set_jumps = true, -- wether to set jumps in the jumplist
 			goto_next_start = {
-				["]m"] = { query = "@function.outer", desc = "Next function start" },
-				["]]"] = { query = "@class.outer", desc = "Next class start" },
+				["ganf"] = { query = "@function.outer", desc = "[g]o [a]t [n]ext [f]unction" },
+				["ganc"] = { query = "@class.outer", desc = "[g]o [a]t [n]ext [c]lass" },
 				["ganj"] = { query = "@code_cell.outer", desc = "[g]o [a]t [n]ext cell" },
 			},
 			goto_next_end = {
-				["]M"] = { query = "@function.outer", desc = "Next function end" },
-				["]["] = { query = "@class.outer", desc = "Next class end" },
+				["gafe"] = { query = "@function.outer", desc = "[g]o [a]t [f]unction [e]nd" },
+				["gace"] = { query = "@class.outer", desc = "[g]o [a]t [c]lass [e]nd" },
 				["gaje"] = { query = "@code_cell.outer", desc = "[g]o [a]t cell [end]" },
 			},
 			goto_previous_start = {
-				["[m"] = { query = "@function.outer", desc = "Previous function start" },
-				["[]"] = { query = "@class.outer", desc = "Previous class start" },
-			},
-			goto_previous_end = {
-				["[M"] = { query = "@function.outer", desc = "Previous function end" },
-				["[["] = { query = "@class.outer", desc = "Previous class end" },
+				["gafs"] = { query = "@function.outer", desc = "[g]o [a]t [f]unction [s]tart" },
+				["gacs"] = { query = "@class.outer", desc = "[g]o [a]t [c]lass [s]tart" },
 				["gajs"] = { query = "@code_cell.outer", desc = "[g]o [a]t cell [s]tart" },
 			},
 		},
